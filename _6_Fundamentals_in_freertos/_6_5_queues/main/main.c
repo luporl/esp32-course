@@ -5,7 +5,7 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-xQueueHandle queue;
+QueueHandle_t queue;
 
 void listenForHTTP(void *params)
 {
