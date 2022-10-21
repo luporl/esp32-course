@@ -13,7 +13,7 @@ void timer_callback(void *args)
 
 void app_main(void)
 {
-    gpio_pad_select_gpio(GPIO_NUM_4);
+    esp_rom_gpio_pad_select_gpio(GPIO_NUM_4);
     gpio_set_direction(GPIO_NUM_4, GPIO_MODE_OUTPUT);
 
     const esp_timer_create_args_t esp_timer_create_args = {
