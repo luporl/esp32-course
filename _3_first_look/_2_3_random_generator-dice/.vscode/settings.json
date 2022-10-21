@@ -10,5 +10,6 @@
   "idf.toolsPathWin": "c:\\esp\\tools",
   "files.associations": {
     "esp_system.h": "c"
-  }
+  },
+  "idf.flashType": "UART"
 }
