@@ -21,7 +21,7 @@ esp_err_t clientEvent(esp_http_client_event_t *evt)
 void app_main(void)
 {
   nvs_flash_init();
-  tcpip_adapter_init();
+  esp_netif_init();
   esp_event_loop_create_default();
   example_connect();
 
