@@ -6,6 +6,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_sleep.h"
+#include "esp_timer.h"
 #include "esp_log.h"
 #include "esp32/rom/uart.h"
 #include "driver/rtc_io.h"
@@ -15,7 +16,7 @@
 
 void app_main()
 {
-    gpio_pad_select_gpio(INPUT_PIN);
+    esp_rom_gpio_pad_select_gpio(INPUT_PIN);
     gpio_set_direction(INPUT_PIN, GPIO_MODE_INPUT);
     gpio_wakeup_enable(INPUT_PIN, GPIO_INTR_LOW_LEVEL);
 
