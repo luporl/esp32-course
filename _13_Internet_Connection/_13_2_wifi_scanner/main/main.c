@@ -1,21 +1,23 @@
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_event_loop.h"
+#include "esp_event.h"
 #include "esp_wifi.h"
 #include "esp_log.h"
 #include "nvs_flash.h"
 
 #define MAX_APs 20
 
-static esp_err_t event_handler(void * ctx, system_event_t *event) {
-  return ESP_OK;
+static void wifi_event_handler(void* event_handler_arg, esp_event_base_t event_base,
+    int32_t event_id, void* event_data)
+{
 }
 
 void wifiInit() {
   ESP_ERROR_CHECK(nvs_flash_init());
-  tcpip_adapter_init();
-  ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
+  esp_netif_init();
+  ESP_ERROR_CHECK(esp_event_loop_create_default());
+  ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &wifi_event_handler, NULL));
 
   wifi_init_config_t wifi_config = WIFI_INIT_CONFIG_DEFAULT();
   ESP_ERROR_CHECK(esp_wifi_init(&wifi_config));
