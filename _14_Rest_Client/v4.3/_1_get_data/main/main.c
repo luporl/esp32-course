@@ -24,7 +24,7 @@ esp_err_t on_client_data(esp_http_client_event_t * evt)
 void fetch_quote()
 {
     esp_http_client_config_t esp_http_client_config = {
-        .url = "http://quotes.rest/qod",
+        .url = "http://www.google.com",
         .method = HTTP_METHOD_GET,
         .event_handler = on_client_data};
     esp_http_client_handle_t client = esp_http_client_init(&esp_http_client_config);
