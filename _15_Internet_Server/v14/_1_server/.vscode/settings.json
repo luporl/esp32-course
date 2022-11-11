@@ -3,5 +3,6 @@
   "idf.adapterTargetName": "esp32",
   "files.associations": {
     "connect.h": "c"
-  }
+  },
+  "idf.flashType": "UART"
 }
